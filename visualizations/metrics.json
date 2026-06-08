@@ -1,7 +1,7 @@
 {
-    "accuracy": 0.10217216610908508,
-    "validation_accuracy": 0.05832662805914879,
-    "loss": 7.302985668182373,
-    "perplexity": 1484.7262164054794,
-    "training_time_seconds": 318.504958152771
+    "accuracy": 0.08935036510229111,
+    "validation_accuracy": 0.05872888118028641,
+    "loss": 7.303513050079346,
+    "perplexity": 1485.5094406449616,
+    "training_time_seconds": 309.82620072364807
 }
