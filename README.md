@@ -1,422 +1,92 @@
-# 🎭 Shakespeare Poem Generation AI (LSTM + FastAPI + Docker)
+# 🎭 Shakespeare Poem Generation AI
 
-## 📌 Project Overview
-
-This project is a Deep Learning-based Natural Language Processing (NLP) system that generates Shakespeare-style poetry using a **Long Short-Term Memory (LSTM)** neural network trained on *Romeo and Juliet*.
-
-It demonstrates the full **Artificial Intelligence lifecycle**:
-
-* Data Collection
-* Data Preprocessing
-* Model Training (LSTM)
-* Model Evaluation
-* Prediction & Text Generation
-* REST API Deployment (FastAPI)
-* Containerization (Docker)
+![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
+![FastAPI](https://img.shields.io/badge/FastAPI-API-green.svg)
+![Deep Learning](https://img.shields.io/badge/Deep%20Learning-LSTM-red.svg)
+![Docker](https://img.shields.io/badge/Docker-Containerized-blue.svg)
+![NLP](https://img.shields.io/badge/NLP-Natural%20Language%20Processing-purple.svg)
+![Status](https://img.shields.io/badge/Project-Active-success.svg)
 
 ---
 
-# 🧠 Machine Learning Approach
+## 🧠 Overview
 
-## Model Type: LSTM (Long Short-Term Memory)
+An end-to-end **Deep Learning NLP system** that generates Shakespeare-style poetry using an **LSTM neural network** trained on *Romeo and Juliet*.
 
-LSTM is a type of Recurrent Neural Network (RNN) designed for sequence learning.
-
-It is ideal for poetry generation because:
-
-* Language is sequential
-* Context matters across long text
-* It learns dependencies between words
+This project demonstrates a full **AI engineering lifecycle** from dataset → training → API → deployment.
 
 ---
 
-## 🏗️ Model Architecture
+## 🖼️ Demo Preview
 
-```
-Input Text → Tokenization → Embedding Layer → LSTM Layer → Dense Softmax → Next Word Prediction
-```
+> Replace these with real screenshots or GIFs from your project
 
----
+### 🏠 Landing Page
+![UI](https://via.placeholder.com/900x400.png?text=AI+Poem+Generator+UI)
 
-# 📚 Dataset
-
-## Source
-
-* 📖 Romeo and Juliet — William Shakespeare
-* Source: Project Gutenberg
-
-## Why this dataset?
-
-* Rich poetic structure
-* Strong linguistic patterns
-* Shakespearean vocabulary
-* Ideal for language modeling
+### ✍️ Generated Poem Output
+![Output](https://via.placeholder.com/900x400.png?text=Generated+Shakespeare+Poem)
 
 ---
 
-# 📁 Project Structure
+## 🚀 Features
 
-```
-poem-generation-ai/
-│
-├── data/
-│   └── romeo_and_juliet.txt
-│
-├── models/
-│   ├── best_model.keras
-│   └── tokenizer.joblib
-│
-├── visualizations/
-│   ├── accuracy.png
-│   ├── loss.png
-│   ├── confusion_matrix.png
-│   └── metrics.json
-│
-├── src/
-│   ├── data_collection.py
-│   ├── data_preprocessing.py
-│   ├── model_builder.py
-│   ├── train_model.py
-│   ├── evaluate_model.py
-│   ├── save_model.py
-│   ├── load_model.py
-│   ├── predict.py
-│   └── config.py
-│
-├── api/
-│   └── main.py
-│
-├── train.py
-├── Dockerfile
-├── docker-compose.yml
-├── requirements.txt
-└── README.md
-```
+- 🎭 Shakespeare-style poem generation
+- 🧠 LSTM-based neural network
+- ⚙️ Adjustable creativity (temperature)
+- 📏 Custom poem length control
+- 🌐 FastAPI REST backend
+- 🐳 Docker containerization
+- 📊 Training evaluation metrics
+- 🔁 Real-time text generation
 
 ---
 
-# ⚙️ How Artificial Intelligence Works in This Project
+## 🧬 AI Architecture
 
 ---
 
-## 1. 📥 Data Collection
+## 📚 Dataset
 
-The system downloads Shakespeare’s text from Project Gutenberg.
+- 📖 *Romeo and Juliet* — William Shakespeare  
+- 📦 Source: Project Gutenberg  
 
-### File:
-
-```python
-src/data_collection.py
-```
-
-### Output:
-
-```
-data/romeo_and_juliet.txt
-```
+### Why this dataset?
+- Rich poetic structure
+- Strong linguistic patterns
+- Classical vocabulary ideal for NLP
 
 ---
 
-## 2. 🧹 Data Preprocessing
-
-Raw text is converted into machine-readable format.
-
-### Steps:
-
-### ✔ Lowercasing
-
-```
-Love IS → love is
-```
-
-### ✔ Tokenization
-
-```
-love → 1
-is → 2
-beautiful → 3
-```
-
-### ✔ Sequence Generation
-
-```
-love is → predict next word
-love is beautiful → training sequence
-```
-
-### ✔ Padding
-
-Ensures equal-length inputs for neural network training.
+## 📁 Project Structure
 
 ---
 
-## 3. 🧠 Training Algorithm
-
-### File:
-
-```
-src/model_builder.py
-src/train_model.py
-```
-
-### Model Components:
-
-#### Embedding Layer
-
-Converts words into vectors:
-
-```
-love → [0.12, -0.33, 0.88]
-```
-
-#### LSTM Layer
-
-Learns:
-
-* Grammar structure
-* Context
-* Poetry patterns
-
-#### Dense Softmax Layer
-
-Predicts next word probability.
+## ⚙️ AI Pipeline
 
 ---
 
-## ⚙️ Optimizer
+## 🌐 API Endpoints
 
-* Adam Optimizer
-* Loss: Categorical Crossentropy
-
----
-
-## 4. 📊 Model Evaluation
-
-### File:
-
-```
-src/evaluate_model.py
-```
-
-### Metrics:
-
-| Metric              | Description                |
-| ------------------- | -------------------------- |
-| Accuracy            | Correct predictions        |
-| Validation Accuracy | Generalization performance |
-| Loss                | Prediction error           |
-| Perplexity          | Language uncertainty       |
-| Training Time       | Performance efficiency     |
-
----
-
-### 📈 Outputs
-
-```
-visualizations/accuracy.png
-visualizations/loss.png
-visualizations/metrics.json
-```
-
----
-
-## 5. ✍️ Prediction & Text Generation
-
-### File:
-
-```
-src/predict.py
-```
-
-### Process:
-
-1. User inputs seed text
-2. Text is tokenized
-3. Model predicts next word
-4. Word is appended
-5. Process repeats
-
----
-
-### Example:
-
-Input:
-
-```
-love is
-```
-
-Output:
-
-```
-love is the gentle light that guides the human heart through night
-```
-
----
-
-## 6. 🚀 Model Saving
-
-### Files:
-
-* Model:
-
-```
-models/best_model.keras
-```
-
-* Tokenizer:
-
-```
-models/tokenizer.joblib
-```
-
----
-
-## 7. 🌐 FastAPI Deployment
-
-### Base URL:
-
-```
-http://localhost:8000
-```
-
----
-
-### Health Check
-
-```
-GET /api/v1/health
-```
+### 🔹 Health Check
 
 Response:
-
 ```json
-{
-  "status": "healthy"
-}
-```
+{ "status": "healthy" }
 
----
-
-### Generate Poem
-
-```
 POST /api/v1/generate
-```
-
-Request:
-
-```json
 {
-  "text": "love is"
+  "text": "love is",
+  "temperature": 0.8,
+  "words": 40
 }
-```
-
-Response:
-
-```json
 {
-  "generated_poem": "love is the golden fire that burns within the soul"
+  "generated_poem": "love is the golden light that burns within the soul"
 }
-```
-
----
-
-## 🐳 Docker Deployment
-
-### Build Image
-
-```bash
-docker build -t poem-ai .
-```
-
----
-
-### Run API
-
-```bash
-docker run -p 8000:8000 poem-ai
-```
-
----
-
-### Run with Docker Compose
-
-```bash
+docker build -t shakespeare-poem-ai .
+docker run -p 8000:8000 shakespeare-poem-ai
 docker compose up --build
-```
+love is
+love is the gentle flame that guides the soul through night
 
 ---
-
-## 🧪 Testing API (curl)
-
-### Windows CMD
-
-```bash
-curl -X POST http://localhost:8000/api/v1/generate ^
--H "Content-Type: application/json" ^
--d "{\"text\":\"love is\"}"
-```
-
----
-
-### PowerShell
-
-```powershell
-curl -X POST "http://localhost:8000/api/v1/generate" `
--H "Content-Type: application/json" `
--d '{"text":"love is"}'
-```
-
----
-
-## 📦 Installation (Local Setup)
-
-```bash
-pip install -r requirements.txt
-python train.py
-uvicorn api.main:app --reload
-```
-
----
-
-## 📊 Training Pipeline
-
-```
-Data Collection
-      ↓
-Preprocessing
-      ↓
-LSTM Model Training
-      ↓
-Evaluation
-      ↓
-Model Saving
-      ↓
-API Deployment
-```
-
----
-
-## 🔮 Future Improvements
-
-* Replace LSTM with Transformer (GPT-style model)
-* Add Beam Search decoding
-* Improve rhyme detection
-* Add temperature sampling for creativity control
-* Deploy to AWS / Azure / GCP
-* Add frontend UI for poem generation
-
----
-
-## 🏁 Conclusion
-
-This project demonstrates an end-to-end AI system for poetry generation using LSTM neural networks. It integrates:
-
-* Deep Learning (LSTM)
-* NLP preprocessing
-* Model evaluation
-* REST API development
-* Docker containerization
-
-It serves as a complete **production-style AI pipeline** suitable for learning, portfolios, and deployment.
