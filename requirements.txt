@@ -1,0 +1,9 @@
+tensorflow
+numpy
+pandas
+matplotlib
+joblib
+fastapi
+uvicorn
+requests
+scikit-learn

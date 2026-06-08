@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+
+  train:
+    build: .
+    command: python train.py
+    volumes:
+      - .:/app
+
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
